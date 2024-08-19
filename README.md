@@ -10,3 +10,6 @@ Client  <--------Modbus/TCP Security -----------> This proxy service <--------Mo
 
 It is intended for use with an internal CA and will trust any certificate created by that CA where the clients common name matches a configured list.
 There is no RBAC implemented, all clients can perform any action at present.
+
+You will need to create the CA cert, server and client keys and signed certs. Then run the PoC server. It will need a backend Modbus/TCP service to talk with, one is available here: https://github.com/unixhead/pyModbusServerGUI
+The PoC client makes an mTLS connection to the server, which relays the modbus query on to the backend and then relays the response back to the client.
