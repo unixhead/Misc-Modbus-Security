@@ -9,7 +9,9 @@ This is a proof of concept for a Modbus/TCP Security proxy service, allowing cli
 Client  <--------Modbus/TCP Security -----------> This proxy service <--------Modbus/TCP---------> Backend PLC/device/server/etc
 
 It is intended for use with an internal CA and will trust any certificate created by that CA where the clients common name matches a configured list.
-There is no RBAC implemented, all clients can perform any action at present.
 
 You will need to create the CA cert, server and client keys and signed certs. Then run the PoC server. It will need a backend Modbus/TCP service to talk with, one is available here: https://github.com/unixhead/pyModbusServerGUI
 The PoC client makes an mTLS connection to the server, which relays the modbus query on to the backend and then relays the response back to the client.
+
+In v0.1 there is no RBAC support and it doesn't matter if you include the Modbus OID or not.
+In v0.2 there is RBAC support, the Modbus OID (1.3.6.1.4.1.50316.802.1) needs to be set in the certificate to either "operator" for read-only access or "admin" for read-write. Any other value, or lack of hte OID, will result in the connection being cut. 
