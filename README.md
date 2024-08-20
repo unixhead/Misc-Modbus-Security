@@ -14,4 +14,10 @@ You will need to create the CA cert, server and client keys and signed certs. Th
 The PoC client makes an mTLS connection to the server, which relays the modbus query on to the backend and then relays the response back to the client.
 
 In v0.1 there is no RBAC support and it doesn't matter if you include the Modbus OID or not.
+
 In v0.2 there is RBAC support, the Modbus OID (1.3.6.1.4.1.50316.802.1) needs to be set in the certificate to either "operator" for read-only access or "admin" for read-write. Any other value, or lack of hte OID, will result in the connection being cut. 
+
+
+
+For test lab purposes you can create a CA using the CA-creation-script.sh to generate keys and certs. 
+Note that this creates a CA with no password set for signing, it creates 3 sets of host certificates called test1, test2 and test3 in subfolders. These are configured with the modbus OID set as Admin.
