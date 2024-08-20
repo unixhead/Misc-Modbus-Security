@@ -21,3 +21,4 @@ In v0.2 there is RBAC support, the Modbus OID (1.3.6.1.4.1.50316.802.1) needs to
 # Certificate Creation
 For test lab purposes you can create a CA using the CA-creation-script.sh to generate keys and certs. 
 Note that this creates a CA with no password set for signing, it creates 3 sets of host certificates called test1, test2 and test3 in subfolders. These are configured with the modbus OID set as Admin.
+** As it has no password then it is not suitable for production use! **
