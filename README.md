@@ -15,7 +15,7 @@ The PoC client makes an mTLS connection to the server, which relays the modbus q
 
 In v0.1 there is no RBAC support and it doesn't matter if you include the Modbus OID or not.
 
-In v0.2 there is RBAC support, the Modbus OID (1.3.6.1.4.1.50316.802.1) needs to be set in the certificate to either "operator" for read-only access or "admin" for read-write. Any other value, or lack of hte OID, will result in the connection being cut. 
+In v0.2 there is RBAC support, the Modbus OID (1.3.6.1.4.1.50316.802.1) needs to be set in the certificate to either "operator" for read-only access or "admin" for read-write. Any other value, or lack of the OID, will result in the connection being cut. 
 
 
 # Certificate Creation
